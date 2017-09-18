@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: './src/app.module',
+    entry: './src/app/app.module',
     devtool: 'inline-source-map',
     output: {
         path: path.resolve(__dirname, 'src'),
