@@ -1,0 +1,66 @@
+<div class="records">
+    <div class="control-options">
+        <input type="text" class="form-control search-box" ng-model="recordsList.searchText" placeholder="Search by Email Address">
+        <button type="button" class="btn btn-primary create-record" ng-click="recordsList.openCreateRecModal()">Create</button>
+    </div>
+
+    <table class="table table-bordered">
+        <thead class="thead-default">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="record in recordsList.records | filter:{email: recordsList.searchText}">
+                <td>{{record.name}}</td>
+                <td>{{record.email}}</td>
+                <td>{{record.phone}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger delete-record" ng-click="recordsList.deleteRecord(record.id)">DELETE</button>
+                </td>
+                <td>
+                    <a href="/records/{{record.id}}">Details</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal create-record fade" id="createRecord" tabindex="-1" role="dialog" aria-labelledby="createRecordTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createRecordTitle">Create Record</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="recordName">Name</label>
+                    <input type="text" ng-model="recordsList.newRecord.name" class="form-control" id="recordName" aria-describedby="emailHelp" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="recordEmail">Email</label>
+                    <input type="email" ng-model="recordsList.newRecord.email" class="form-control" id="recordEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="recordPhone">Phone</label>
+                    <input type="text" ng-model="recordsList.newRecord.phone" class="form-control" id="recordPhone" aria-describedby="emailHelp" placeholder="Enter phone">
+                </div>
+                <div class="form-group">
+                    <label for="recordAddress">Address</label>
+                    <textarea ng-model="recordsList.newRecord.address" class="form-control" id="recordAddress" aria-describedby="emailHelp" placeholder="Enter address"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary float-left close-create-rec" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary create-new-rec" ng-click="recordsList.createRecord()" ng-disabled="!recordsList.newRecord.name || !recordsList.newRecord.email || !recordsList.newRecord.phone || !recordsList.newRecord.address">Create</button>
+            </div>
+        </div>
+    </div>
+</div>

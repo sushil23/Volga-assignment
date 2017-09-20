@@ -1,0 +1,30 @@
+.records, .record-details {
+    padding: 35px;
+}
+
+/* Styling for Records listing page */
+.records .table thead th,
+.records .table-bordered td, .table-bordered th {
+    border: 1px solid black;
+    text-align: center;
+}
+.records .control-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.records .search-box {
+    width: 350px;
+    border-radius: 20px;
+}
+.records .delete-record,
+.records .create-record,
+.close-create-rec,
+.create-new-rec {
+    cursor: pointer;
+}
+
+/* Styling for Record Details page */
+.record-details .card{
+    margin-bottom: 20px;
+}

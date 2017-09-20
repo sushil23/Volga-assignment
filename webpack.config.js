@@ -26,22 +26,12 @@ module.exports = {
                 use: 'raw-loader'
             },
             {
-                test: /\.scss$/,
-                exclude: /node_modules/,
+                test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: [
                         {
-                            loader: 'css-loader',
-                            options: {
-                                importLoaders: 1,
-                            }
-                        },
-                        {
-                            loader: 'postcss-loader'
-                        },
-                        {
-                            loader: 'sass-loader' // compiles SASS to CSS
+                            loader: 'css-loader'
                         }
                     ]
                 })

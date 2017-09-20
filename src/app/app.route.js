@@ -1,4 +1,6 @@
 import dataService from './app.service';
+import RecordsListController from './records/recordsList.controller';
+import RecordDetailsController from './records/recordDetails.controller';
 
 routes.$inject = ['$routeProvider', '$locationProvider'];
 
